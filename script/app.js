@@ -39,10 +39,16 @@ let showResult = queryResponse => {
 };
 
 // 2 Aan de hand van een longitude en latitude gaan we de yahoo wheater API ophalen.
-let getAPI = (lat, lon) => {
+let getAPI = async (lat, lon) => {
 	// Eerst bouwen we onze url op
 	// Met de fetch API proberen we de data op te halen.
 	// Als dat gelukt is, gaan we naar onze showResult functie.
+	const weatherInfo = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=5f0f86a4d70f6105b5ad52f7e18ef4b7&units=metric&lang=nl&cnt=1`).then((response) => response.json())
+
+	console.info(weatherInfo)
+	sunrise = new Date(
+		weatherInfo.city.sunrise * 1000 - weatherInfo.city.timezone,
+	)
 };
 
 document.addEventListener('DOMContentLoaded', function() {
