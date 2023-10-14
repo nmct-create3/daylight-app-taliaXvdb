@@ -14,6 +14,8 @@
     /* colors */
     --global-color-back: #CCE7FF;
     --global-color-front: #0F3557;
+    --global-color-backNight: #0F3557;
+    --global-color-frontNight: #CCE7FF;
     /* opacity */
     --global-opacity: 60%;
     /* transitions */
@@ -382,8 +384,8 @@ input::placeholder {
 */
 
 .is-night {
-    --global-color-front: #CCE7FF;
-    --global-color-back: #0F3557;
+    --global-color-front: var(--global-color-frontNight);
+    --global-color-back: var(--global-color-backNight);
  }
 
 /* Night version: just switch the light and dark vars */
